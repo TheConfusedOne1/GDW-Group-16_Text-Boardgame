@@ -36,10 +36,10 @@ int player2Resources = 0;
 int player3Resources = 0;
 int player4Resources = 0;
 
-bool player1IsAlive = true;
-bool player2IsAlive = true;
-bool player3IsAlive = true;
-bool player4IsAlive = true;
+bool player1IsAlive = false;
+bool player2IsAlive = false;
+bool player3IsAlive = false;
+bool player4IsAlive = false;
 
 bool player1IsCaptured = false;
 bool player2IsCaptured = false;
@@ -407,6 +407,24 @@ int main()
             cout << "How many players are playing this round: ";
             cin >> numOfPlayers;
         } while ((numOfPlayers < 2) && (numOfPlayers < 5));
+        if (numOfPlayers == 2)
+        {
+            player1IsAlive = true;
+            player2IsAlive = true;
+        }
+        else if (numOfPlayers == 3)
+        {
+            player1IsAlive = true;
+            player2IsAlive = true;
+            player3IsAlive = true;
+        }
+        else
+        {
+            player1IsAlive = true;
+            player2IsAlive = true;
+            player3IsAlive = true;
+            player4IsAlive = true;
+        }
         playerTurn = 1;
         numOfAlivePlayers = numOfPlayers;
         while (numOfAlivePlayers > 1) {
