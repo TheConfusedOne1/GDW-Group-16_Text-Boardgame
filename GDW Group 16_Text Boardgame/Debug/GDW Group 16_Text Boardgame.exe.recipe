@@ -1,6 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project>
+<<<<<<< HEAD
   <ProjectOutputs>C:\Users\dowmi\OneDrive\Desktop\GDW-Group-16_Text-Boardgame\Debug\GDW Group 16_Text Boardgame.exe</ProjectOutputs>
+=======
+  <ProjectOutputs>C:\Users\nazif\Documents\uni\math\Group 16\GDW Group 16_Text Boardgame\Debug\GDW Group 16_Text Boardgame.exe</ProjectOutputs>
+>>>>>>> main
   <ContentFiles></ContentFiles>
   <SatelliteDlls></SatelliteDlls>
   <NonRecipeFileRefs></NonRecipeFileRefs>
