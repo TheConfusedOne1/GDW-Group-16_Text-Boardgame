@@ -33,15 +33,22 @@ int player2Hp = 100;
 int player3Hp = 100;
 int player4Hp = 100;
 
+int player1TurnsInJail = 0;
+int player2TurnsInJail = 0;
+int player3TurnsInJail = 0;
+int player4TurnsInJail = 0;
+
+int freeDice[4] = { 0, 0, 0, 0 };
+
 int player1Resources = 0;
 int player2Resources = 0;
 int player3Resources = 0;
 int player4Resources = 0;
 
-bool player1IsAlive = true;
-bool player2IsAlive = true;
-bool player3IsAlive = true;
-bool player4IsAlive = true;
+bool player1IsAlive = false;
+bool player2IsAlive = false;
+bool player3IsAlive = false;
+bool player4IsAlive = false;
 
 bool player1IsCaptured = false;
 bool player2IsCaptured = false;
@@ -429,6 +436,21 @@ void checkSpace(int player)
         {
             cout << "On space " << player1Space << " player 1 is passing by the jail." << endl;
         }
+        else if ((player1Space == 6) && (player1IsCaptured == true))
+        {
+            cout << "On space " << player1Space << " player 1 is in jail." << endl;
+            player1TurnsInJail++;
+            freeDice[player] = diceRoll();
+            if ((player1TurnsInJail == 3) || (freeDice[player] == 7) || (freeDice[player] == 8) )
+            {
+                player1IsCaptured = false;
+                cout << "Player 1 has been freed from jail!";
+            }
+            else
+            {
+                cout << "Player 1 is still in jail.";
+            }
+        }
         else if (player1Space == 12)
         {
             cout << "On space " << player1Space << " player 1 is in No man's Land." << endl;
@@ -464,6 +486,21 @@ void checkSpace(int player)
         else if ((player2Space == 6) && (player2IsCaptured == false))
         {
             cout << "On space " << player2Space << " player 2 is passing by the jail." << endl;
+        }
+        else if ((player2Space == 6) && (player2IsCaptured == true))
+        {
+            cout << "On space " << player2Space << " player 2 is in jail." << endl;
+            player2TurnsInJail++;
+            freeDice[player] = diceRoll();
+            if ((player2TurnsInJail == 3) || (freeDice[player] == 7) || (freeDice[player] == 8))
+            {
+                player1IsCaptured = false;
+                cout << "Player 2 has been freed from jail!";
+            }
+            else
+            {
+                cout << "Player 2 is still in jail.";
+            }
         }
         else if (player2Space == 12)
         {
@@ -501,6 +538,21 @@ void checkSpace(int player)
         {
             cout << "On space " << player3Space << " player 3 is passing by the jail." << endl;
         }
+        else if ((player3Space == 6) && (player3IsCaptured == true))
+        {
+            cout << "On space " << player3Space << " player 3 is in jail." << endl;
+            player3TurnsInJail++;
+            freeDice[player] = diceRoll();
+            if ((player3TurnsInJail == 3) || (freeDice[player] == 7) || (freeDice[player] == 8))
+            {
+                player3IsCaptured = false;
+                cout << "Player 3 has been freed from jail!";
+            }
+            else
+            {
+                cout << "Player 3 is still in jail.";
+            }
+        }
         else if (player3Space == 12)
         {
             cout << "On space " << player3Space << " player 3 is in No man's Land." << endl;
@@ -536,6 +588,21 @@ void checkSpace(int player)
         else if ((player4Space == 6) && (player4IsCaptured == false))
         {
             cout << "On space " << player4Space << " player 4 is passing by the jail." << endl;
+        }
+        else if ((player4Space == 6) && (player4IsCaptured == true))
+        {
+            cout << "On space " << player4Space << " player 4 is in jail." << endl;
+            player4TurnsInJail++;
+            freeDice[player] = diceRoll();
+            if ((player4TurnsInJail == 3) || (freeDice[player] == 7) || (freeDice[player] == 8))
+            {
+                player4IsCaptured = false;
+                cout << "Player 4 has been freed from jail!";
+            }
+            else
+            {
+                cout << "Player 4 is still in jail.";
+            }
         }
         else if (player4Space == 12)
         {
@@ -573,6 +640,24 @@ int main()
             cout << "How many players are playing this round: ";
             cin >> numOfPlayers;
         } while ((numOfPlayers < 2) && (numOfPlayers < 5));
+        if (numOfPlayers == 2)
+        {
+            player1IsAlive = true;
+            player2IsAlive = true;
+        }
+        else if (numOfPlayers == 3)
+        {
+            player1IsAlive = true;
+            player2IsAlive = true;
+            player3IsAlive = true;
+        }
+        else
+        {
+            player1IsAlive = true;
+            player2IsAlive = true;
+            player3IsAlive = true;
+            player4IsAlive = true;
+        }
         playerTurn = 1;
         numOfAlivePlayers = numOfPlayers;
         while (numOfAlivePlayers > 1) {
@@ -656,6 +741,26 @@ int main()
             {
                 playerTurn = 1;
                 system("CLS");
+            }
+        }
+        //win conditions :)
+        if ((numOfAlivePlayers == 1))
+        {
+            if (player1IsAlive == true)
+            {
+                cout << "Player 1 has WON the game!\n";
+            }
+            else if(player2IsAlive == true)
+            {
+                cout << "Player 2 has WON the game!\n";
+            }
+            else if (player3IsAlive == true)
+            {
+                cout << "Player 3 has WON the game!\n";
+            }
+            else if (player4IsAlive == true)
+            {
+                cout << "Player 4 has WON the game!\n";
             }
         }
 
