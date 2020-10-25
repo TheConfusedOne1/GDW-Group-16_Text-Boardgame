@@ -1802,7 +1802,7 @@ void rivalpropertyLanding(int player)
 
             else
         {
-        cout << "Problem in rivalpropertyLanding function " << endl;
+        cout << "Did not land on rival property space " << endl;
         }
 
             break;
