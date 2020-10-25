@@ -16,6 +16,8 @@ int propertySpaceUpgradeAmount[24] = { 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0,
 int hpValues[24] = { 0, 0, 0, 10, 0, 10, 0, 0, 10, 0, 15, 15, 0, 0, 20, 20, 0, 0, 0, 0, 25, 0, 25, 30 };
 std::string propertyColours[24] = { "None", "None", "None", "Green", "None", "Green", "None", "None", "Green", "None", "LightBlue", "LightBlue", "None", "None", "Yellow", "Yellow", "None", "None", "None", "None", "Pink", "None", "Pink", "Blue" };
 std::string gunName[24] = { "None", "None", "None", "Kolibri", "None", "ASP Pistol", "None", "None", "Beretta M9", "None", "Supernova", "USAS-12", "None", "None", "Scorpion Evo", "PPSH-41", "None", "None", "None", "None", "AK-47", "None", "M-16", "RPG" };
+int propertyownership[24] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+
 
 bool isRiskSpace[24] = { false, false, false, false, true, false, false, false, false, true, false, false, false, false, false, false, true, false, false, true, false, false, false, false };
 bool isSSSpace[24] = { false, true, false, false, false, false, false, true, false, false, false, false, false, true, false, false, false, false, false, false, false, true, false, false };
@@ -150,6 +152,169 @@ void riskySpaceCardPicker(int player)
 
 }
 
+void propertyanalyzer(int player)
+{
+    switch (player)
+    {
+    case 1:
+    {
+        if (propertyownership[player1Space] == 0)
+        {
+            cout << "This property is unowned. " << endl;
+            player1Hp = player1Hp - hpValues[player1Space];
+            cout << " your remaing HP is " << player1Hp;
+            propertyownership[player1Space] = 1;
+        }
+        else if (propertyownership[player1Space] == 1)
+        {
+            cout << "You already own this property. " << endl;
+        }
+        else if (propertyownership[player1Space] == 2)
+        {
+            cout << "This property is owned by Player 2" << endl;
+            player1Hp = player1Hp - hpValues[player1Space];
+            cout << "Your remaining HP is " << player1Hp;
+        }
+
+        else if (propertyownership[player1Space] == 3)
+        {
+            cout << "This property is owned by Player 3" << endl;
+            player1Hp = player1Hp - hpValues[player1Space];
+            cout << "Your remaining HP is " << player1Hp;
+        }
+        else if (propertyownership[player1Space] == 4)
+        {
+            cout << "This property is owned by Player 4" << endl;
+            player1Hp = player1Hp - hpValues[player1Space];
+            cout << "Your remaining HP is " << player1Hp;
+        }
+
+        else
+        {
+            cout << "An error has occured" << endl;
+        }
+        break;
+    case 2:
+    
+        if (propertyownership[player2Space] == 0)
+        {
+            cout << "This property is unowned. " << endl;
+            player2Hp = player2Hp - hpValues[player2Space];
+            cout << " your remaing HP is " << player1Hp;
+            propertyownership[player2Space] = 2;
+        }
+        else if (propertyownership[player2Space] == 2)
+        {
+            cout << "You already own this property. " << endl;
+        }
+        else if (propertyownership[player2Space] == 1)
+        {
+            cout << "This property is owned by Player 1" << endl;
+            player2Hp = player2Hp - hpValues[player2Space];
+            cout << "Your remaining HP is " << player2Hp;
+        }
+
+        else if (propertyownership[player2Space] == 3)
+        {
+            cout << "This property is owned by Player 3" << endl;
+            player2Hp = player2Hp - hpValues[player2Space];
+            cout << "Your remaining HP is " << player2Hp;
+        }
+        else if (propertyownership[player2Space] == 4)
+        {
+            cout << "This property is owned by Player 4" << endl;
+            player2Hp = player2Hp - hpValues[player2Space];
+            cout << "Your remaining HP is " << player2Hp;
+        }
+
+        else
+        {
+            cout << "An error has occured" << endl;
+        }
+        break;
+    case 3:
+        if (propertyownership[player3Space] == 0)
+        {
+            cout << "This property is unowned. " << endl;
+            player3Hp = player3Hp - hpValues[player3Space];
+            cout << " your remaing HP is " << player3Hp;
+            propertyownership[player3Space] = 3;
+        }
+        else if (propertyownership[player3Space] == 3)
+        {
+            cout << "You already own this property. " << endl;
+        }
+        else if (propertyownership[player3Space] == 2)
+        {
+            cout << "This property is owned by Player 2" << endl;
+            player3Hp = player3Hp - hpValues[player3Space];
+            cout << "Your remaining HP is " << player3Hp;
+        }
+
+        else if (propertyownership[player3Space] == 1)
+        {
+            cout << "This property is owned by Player 1" << endl;
+            player3Hp = player3Hp - hpValues[player3Space];
+            cout << "Your remaining HP is " << player3Hp;
+        }
+        else if (propertyownership[player3Space] == 4)
+        {
+            cout << "This property is owned by Player 4" << endl;
+            player3Hp = player3Hp - hpValues[player3Space];
+            cout << "Your remaining HP is " << player3Hp;
+        }
+
+        else
+        {
+            cout << "An error has occured" << endl;
+        }
+        break;
+    case 4:
+        if (propertyownership[player4Space] == 0)
+        {
+            cout << "This property is unowned. " << endl;
+            player4Hp = player4Hp - hpValues[player4Space];
+            cout << " your remaing HP is " << player4Hp;
+            propertyownership[player4Space] = 4;
+        }
+        else if (propertyownership[player4Space] == 4)
+        {
+            cout << "You already own this property. " << endl;
+        }
+        else if (propertyownership[player4Space] == 2)
+        {
+            cout << "This property is owned by Player 2" << endl;
+            player4Hp = player4Hp - hpValues[player4Space];
+            cout << "Your remaining HP is " << player4Hp;
+        }
+
+        else if (propertyownership[player4Space] == 3)
+        {
+            cout << "This property is owned by Player 3" << endl;
+            player4Hp = player4Hp - hpValues[player4Space];
+            cout << "Your remaining HP is " << player1Hp;
+        }
+        else if (propertyownership[player4Space] == 1)
+        {
+            cout << "This property is owned by Player 1" << endl;
+            player4Hp = player4Hp - hpValues[player4Space];
+            cout << "Your remaining HP is " << player4Hp;
+        }
+
+        else
+        {
+            cout << "An error has occured" << endl;
+        }
+
+
+    }
+    }
+    }
+
+
+
+
+
 
 void secretStashCardPicker(int player)
 {
@@ -245,6 +410,7 @@ void checkSpace(int player)
         if (propertySpace[player1Space] == 1)
         {
             cout << "On space " << player1Space << " there is a property.\nThe property is a " << gunName[player1Space] << endl;
+            propertyanalyzer(player);
         }
         else if (isRiskSpace[player1Space] == true)
         {
