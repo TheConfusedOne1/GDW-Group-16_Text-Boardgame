@@ -1,0 +1,6 @@
+/[Tt]emp/
+/[Oo]bj/
+.vs/
+*.suo
+*.pdb
+*.tmp

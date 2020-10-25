@@ -510,6 +510,26 @@ int main()
                 system("CLS");
             }
         }
+        //win conditions 
+        if ((numOfAlivePlayers == 1)
+        {
+            if (player1IsAlive == true)
+            {
+                cout << "Player 1 has WON the game!\n";
+            }
+            else if(player2IsAlive == true)
+            {
+                cout << "Player 2 has WON the game!\n";
+            }
+            else if (player3IsAlive == true)
+            {
+                cout << "Player 3 has WON the game!\n";
+            }
+            else if (player4IsAlive == true)
+            {
+                cout << "Player 4 has WON the game!\n";
+            }
+        }
 
         do
         {
