@@ -510,8 +510,8 @@ int main()
                 system("CLS");
             }
         }
-        //win conditions 
-        if ((numOfAlivePlayers == 1)
+        //win conditions :)
+        if ((numOfAlivePlayers == 1))
         {
             if (player1IsAlive == true)
             {
